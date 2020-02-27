@@ -9,6 +9,11 @@ variable "create_ssh_key" {
   default = true
 }
 
+variable "rbac_enabled" {
+  type    = bool
+  default = false
+}
+
 variable "agent_size" {
   default = "Standard_D2"
 }
@@ -46,7 +51,6 @@ variable resource_group_name {
 variable advanced_networking_enabled {
   default = true
   type    = bool
-
 }
 
 variable vnet_subnet_ids {

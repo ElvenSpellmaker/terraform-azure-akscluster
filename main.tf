@@ -54,6 +54,10 @@ resource "azurerm_kubernetes_cluster" "k8s_auto_scaled" {
     client_id     = var.client_id
     client_secret = var.client_secret
   }
+
+  role_based_access_control {
+    enabled = var.enable_rbac
+  }
 }
 
 
@@ -90,7 +94,7 @@ resource "azurerm_kubernetes_cluster" "k8s" {
 
   addon_profile {
     oms_agent{
-     enabled                      = true
+      enabled                      = true
       log_analytics_workspace_id  = var.oms_workspace
     }
   }
@@ -109,6 +113,10 @@ resource "azurerm_kubernetes_cluster" "k8s" {
   service_principal {
     client_id     = var.client_id
     client_secret = var.client_secret
+  }
+
+  role_based_access_control {
+    enabled = var.enable_rbac
   }
 
   lifecycle {
